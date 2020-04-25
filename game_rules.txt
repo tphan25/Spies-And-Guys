@@ -1,0 +1,54 @@
+================================================================================
+SPIES AND GUYS - A Resistance Spinoff
+================================================================================
+================================================================================
+BACKGROUND - Characters
+================================================================================
+
+The year is 2021; you are an elite legion of native Pluto space pirates with one
+goal in mind: to  conquer the once great planet Earth and steal its resources to
+fuel your home planet's intense lack of oxygen. Only a few raids stand between you
+and stealing all of planet Earth's oxygen; however, a few obstacles have arisen in
+your path.
+
+Some of your fellow pirates have been bribed heavily by Earth's own population;
+these spies have infiltrated the highest ranks of your space pirate hierarchy and
+they mean to sabotage the missions and ensure that Earth lives on. Your mission
+is to single out just who these spies are, and make sure they cannot sabotage the
+mission of vacuuming what little resources Earth has left.
+
+================================================================================
+GAMEPLAY - Basics
+================================================================================
+
+Before the game begins:
+You will be assigned a role: Guy, or Spy. Guys are the "protagonists" here; they
+will not know who any of their fellow Guys are. Spies are the "antagonists", and
+they will know who their fellow Spies are. The spies' mission is to work together
+to sabotage the Guys and win a majority of the 5 rounds in the game.
+
+In Game, Each Round:
+There are 5 rounds in the game, and each round has a specific number X associated
+with it. This number X represents the number of "Guys" who must go on the "mission"
+for the round. 
+
+Phase 1:
+One player will be selected as "Big Guy" who will determine who
+will go on the mission (generally start randomly then pass it in order per round).
+The "Big Guy" will choose X players to go on the mission (can choose themselves).
+Players may debate here for which players to encourage the "Big Guy" to select.
+
+Once X players are selected, a vote is taken; if the majority of players APPROVES
+the mission, then proceed into phase 2. If the majority of players DECLINES then
+move on to the next player to be the "Big Guy" and select them.
+In the event of a tie, the Big Guy's vote goes through (APPROVE/DECLINE) and phase
+2 begins.
+NOTE: If players DECLINE missions 4 times in a row, the 5th mission selected goes
+through without any voting process.
+
+Phase 2:
+X players have been selected corresponding to the round and APPROVED (whether on
+purpose or by default). These players have two choices to anonymously pick from:
+Whether to PASS or to FAIL the mission. However, Guys can only choose to PASS,
+so it is up to the SPIES to choose to FAIL the mission if needed. (NOTE: in some
+cases, more than one FAIL is required.)
