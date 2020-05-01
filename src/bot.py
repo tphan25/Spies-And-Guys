@@ -2,6 +2,8 @@ import os
 import discord
 import urllib
 from constants import RequestType
+from actions import ACTIONS
+from game_globals import LOBBY_LIST
 
 DISCORD_WRITE_PRIVILEGES = 2048
 CLIENT_ID = os.getenv('DISCORD_CLIENT_ID')
@@ -28,16 +30,12 @@ async def on_message(message):
     msg_split = list(map(lambda s: s.strip(), message.content.split()))
     if len(msg_split) == 0:
         return
+    if msg_split[0] == '!sg' and len(msg_split) > 1:
+        action = ACTIONS.get(msg_split[1], None)
+        if action:
+            await action(message, msg_split)
+            print(LOBBY_LIST)
 
-    if msg_split[0] == '!sg':
-        action = msg_split[1]
-        if not action:
-            return
-        msg = f'{action} was called'
-        await message.channel.send(msg)
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
-
-token = os.getenv('DISCORD_TOKEN')
+token = os.getenv('DISCORD_BOT_TOKEN')
 client.run(token)

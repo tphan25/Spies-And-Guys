@@ -30,7 +30,7 @@ to sabotage the Guys and win a majority of the 5 rounds in the game.
 In Game, Each Round:
 There are 5 rounds in the game, and each round has a specific number X associated
 with it. This number X represents the number of "Guys" who must go on the "mission"
-for the round. 
+for the round. Your goal is to have your team "win" 3 rounds.
 
 Phase 1:
 One player will be selected as "Big Guy" who will determine who
@@ -50,5 +50,12 @@ Phase 2:
 X players have been selected corresponding to the round and APPROVED (whether on
 purpose or by default). These players have two choices to anonymously pick from:
 Whether to PASS or to FAIL the mission. However, Guys can only choose to PASS,
-so it is up to the SPIES to choose to FAIL the mission if needed. (NOTE: in some
-cases, more than one FAIL is required.)
+so it is up to the SPIES to choose to FAIL the mission if needed. Only one fail
+is generally required (sometimes a mission indicates two fails required).
+
+If a mission is FAILED, then Spies take the victory for the round. Else, the
+Guys take the victory.
+ 
+The game ends when either team gets 3/5 victories. Best of luck, Space Pirates
+(and filthy oxygen hogging earth scum)
+
