@@ -1,6 +1,11 @@
 from constants import RequestType, GameStatuses
 from game_globals import LOBBY_LIST, GAME_STATUS
 from models import Player
+from utils import (
+    assign_roles,
+    reset_roles,
+    print_players
+)
 
 async def action_help(message, msg_split):
     msg_to_send = 'Help was requested. Display some instructions here.'
@@ -21,6 +26,12 @@ async def action_init_lobby(message, msg_split):
 # inform them of their partners if applicable.
 async def action_start_game(message, msg_split):
     msg_to_send = 'Player asked to start_game. Set up and assign roles'
+    assign_roles(3)
+    print("Players assigned:")
+    print_players()
+    reset_roles()
+    print("Players reset:")
+    print_players()
     await message.channel.send(msg_to_send)
 
 # Should allow for users to request the bot to end the round
