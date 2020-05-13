@@ -1,6 +1,11 @@
 from game_globals import LOBBY_LIST
 from random import random
-from constants import PlayerRoles, MAP_SPYCOUNT_TO_COUNT
+from constants import (
+    PlayerRoles,
+    MAP_SPYCOUNT_TO_COUNT,
+    MAP_SQUADSIZE_TO_COUNT,
+    MAP_FAILNEEDS_TO_COUNT,
+)
 
 def assign_roles():
     global LOBBY_LIST
@@ -27,3 +32,13 @@ def print_players():
 
 def get_num_spies(lobby_size):
     return MAP_SPYCOUNT_TO_COUNT.get(lobby_size)
+
+def get_squadsize_needed(lobby_size, round_num):
+    return MAP_SQUADSIZE_TO_COUNT[lobby_size][round_num - 1]
+
+def find_player_by_name(name):
+    global LOBBY_LIST
+    for player in LOBBY_LIST:
+        if player.name == name:
+            return player
+    return None

@@ -4,7 +4,10 @@ from models import Player
 from utils import (
     assign_roles,
     reset_roles,
-    print_players
+    print_players,
+    get_num_spies,
+    get_squadsize_needed,
+    find_player_by_name,
 )
 from random import random
 
@@ -49,9 +52,11 @@ async def action_start_round(message, msg_split):
     global CAPTAIN_INDEX
     if GAME_STATUS != GameStatuses.PERFORMING_MISSION:
         await message.channel.send(f'Cannot start the round as the game status is {GAME_STATUS}')
+        return
     ROUND_NUMBER += 1
     if ROUND_NUMBER == 1:
         CAPTAIN_INDEX = int(random() * (len(LOBBY_LIST) - 1))
+    GAME_STATUS = GameStatuses.PREPARING_MISSION
     msg_to_send = "Starting the round. The current captain is:\n"
     for index, player in enumerate(LOBBY_LIST):
         if index == CAPTAIN_INDEX:
@@ -150,6 +155,40 @@ async def action_remove_player(message, msg_split):
     else:
         await message.channel.send('You need to specify a player to remove.')
 
+async def action_select_squad(message, msg_split):
+    global LOBBY_LIST
+    global GAME_STATUS
+    global ROUND_NUMBER
+    global SQUAD_LIST
+    squad_size_needed = get_squadsize_needed(len(LOBBY_LIST), ROUND_NUMBER)
+    # Not going to check captain index matching with caller right now
+    # because name isn't necessarily the same as discord name.
+    # Be honorable!
+    if GAME_STATUS != GameStatuses.PREPARING_MISSION:
+        await message.channel.send('Cannot add players at this time.')
+        return
+    if len(msg_split) > 2:
+        player_names = msg_split[2:]
+        # Remove duplicates
+        squad = []
+        player_names = list(dict.fromkeys(player_names))
+        for player_name in player_names:
+            player_name = player_name.strip(',')
+            player = find_player_by_name(player_name)
+            if player:
+                squad.append(player)
+        if len(squad) < squad_size_needed:
+            await message.channel.send(f'Not enough players in the squad (need {squad_size_needed})')
+            return
+        msg_to_send = "Players on squad:\n"
+        for player in squad:
+            msg_to_send += f'{player.name}\n'
+        SQUAD_LIST = squad
+        await message.channel.send(msg_to_send)
+    else:
+        await message.channel.send('You need to specify players for the mission.')
+
+
 
 ACTIONS = {
     RequestType.HELP: action_help,
@@ -157,8 +196,11 @@ ACTIONS = {
     RequestType.START_GAME: action_start_game,
     RequestType.START_ROUND: action_start_round,
     RequestType.END_ROUND: action_end_round,
+    # Player actions
     RequestType.PLAYERS: action_list_players,
     RequestType.ADD_PLAYER: action_add_player,
     RequestType.ADD_PLAYERS: action_add_players,
     RequestType.REMOVE_PLAYER: action_remove_player,
+    # In-game actions
+    RequestType.SELECT_SQUAD: action_select_squad,
 }
