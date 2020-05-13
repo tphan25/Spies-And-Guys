@@ -1,9 +1,10 @@
 from game_globals import LOBBY_LIST
 from random import random
-from constants import PlayerRoles
+from constants import PlayerRoles, MAP_SPYCOUNT_TO_COUNT
 
-def assign_roles(spy_count: int):
+def assign_roles():
     global LOBBY_LIST
+    spy_count = get_num_spies(len(LOBBY_LIST)) 
     count = 0
     spy_indices = []
     while count < spy_count:
@@ -24,7 +25,5 @@ def print_players():
     for player in LOBBY_LIST:
         print(f'{player.name} is a {player.role}')
 
-def setup_fake_lobby():
-    global LOBBY_LIST
-    for name in ['Tam', 'Jacob', 'Kenny', 'Jedediah', 'Anakin', 'Veronica', 'Annie', 'Jessica']:
-        LOBBY_LIST.append(Player(name))
+def get_num_spies(lobby_size):
+    return MAP_SPYCOUNT_TO_COUNT.get(lobby_size)
